@@ -49,11 +49,33 @@ namespace ListaTelefonica
             Atualizar();
 
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void RemoveBtn_Click(object sender, EventArgs e)
         {
+            if (TelTable.SelectedCells.Count == 0)
+            {
+                MessageBox.Show("Selecione um item para remover.");
+                return;
+            }
+            var confirmResult = MessageBox.Show("Tem certeza que deseja remover este item?", "Confirmação", MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.No)
+            {
+                return;
+            }
+
             DataGridViewCell cell = TelTable.SelectedCells[0];
             int index = cell.RowIndex;
+
+            for (int i = index; i < items - 1; i++)
+            {
+                list[i, 0] = list[i + 1, 0];
+                list[i, 1] = list[i + 1, 1];
+            }
+
+            list[items - 1, 0] = null;
+            list[items - 1, 1] = null;
+            items--;
+
+            Atualizar();
         }
     }
 }
