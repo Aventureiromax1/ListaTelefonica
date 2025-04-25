@@ -34,9 +34,10 @@
             this.TelTextBox = new System.Windows.Forms.MaskedTextBox();
             this.AddBtn = new System.Windows.Forms.Button();
             this.TelTable = new System.Windows.Forms.DataGridView();
+            this.RemoveBtn = new System.Windows.Forms.Button();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RemoveBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.TelTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,6 +90,7 @@
             this.TelTable.AllowUserToDeleteRows = false;
             this.TelTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.TelTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
             this.Nome,
             this.Telefone});
             this.TelTable.Location = new System.Drawing.Point(12, 12);
@@ -96,6 +98,22 @@
             this.TelTable.ReadOnly = true;
             this.TelTable.Size = new System.Drawing.Size(240, 426);
             this.TelTable.TabIndex = 5;
+            // 
+            // RemoveBtn
+            // 
+            this.RemoveBtn.Location = new System.Drawing.Point(291, 161);
+            this.RemoveBtn.Name = "RemoveBtn";
+            this.RemoveBtn.Size = new System.Drawing.Size(157, 23);
+            this.RemoveBtn.TabIndex = 6;
+            this.RemoveBtn.Text = "Remover";
+            this.RemoveBtn.UseVisualStyleBackColor = true;
+            this.RemoveBtn.Click += new System.EventHandler(this.RemoveBtn_Click);
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
             // 
             // Nome
             // 
@@ -109,21 +127,11 @@
             this.Telefone.Name = "Telefone";
             this.Telefone.ReadOnly = true;
             // 
-            // RemoveBtn
-            // 
-            this.RemoveBtn.Location = new System.Drawing.Point(291, 161);
-            this.RemoveBtn.Name = "RemoveBtn";
-            this.RemoveBtn.Size = new System.Drawing.Size(157, 23);
-            this.RemoveBtn.TabIndex = 6;
-            this.RemoveBtn.Text = "Remover";
-            this.RemoveBtn.UseVisualStyleBackColor = true;
-            this.RemoveBtn.Click += new System.EventHandler(this.RemoveBtn_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(462, 450);
             this.Controls.Add(this.RemoveBtn);
             this.Controls.Add(this.TelTable);
             this.Controls.Add(this.AddBtn);
@@ -147,9 +155,10 @@
         private System.Windows.Forms.MaskedTextBox TelTextBox;
         private System.Windows.Forms.Button AddBtn;
         private System.Windows.Forms.DataGridView TelTable;
+        private System.Windows.Forms.Button RemoveBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefone;
-        private System.Windows.Forms.Button RemoveBtn;
     }
 }
 
