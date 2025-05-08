@@ -35,6 +35,8 @@
             this.AddBtn = new System.Windows.Forms.Button();
             this.TelTable = new System.Windows.Forms.DataGridView();
             this.RemoveBtn = new System.Windows.Forms.Button();
+            this.lblidshow = new System.Windows.Forms.Label();
+            this.lblid = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -98,6 +100,7 @@
             this.TelTable.ReadOnly = true;
             this.TelTable.Size = new System.Drawing.Size(240, 426);
             this.TelTable.TabIndex = 5;
+            this.TelTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TelTable_CellClick);
             // 
             // RemoveBtn
             // 
@@ -109,11 +112,30 @@
             this.RemoveBtn.UseVisualStyleBackColor = true;
             this.RemoveBtn.Click += new System.EventHandler(this.RemoveBtn_Click);
             // 
+            // lblidshow
+            // 
+            this.lblidshow.AutoSize = true;
+            this.lblidshow.Location = new System.Drawing.Point(288, 40);
+            this.lblidshow.Name = "lblidshow";
+            this.lblidshow.Size = new System.Drawing.Size(21, 13);
+            this.lblidshow.TabIndex = 7;
+            this.lblidshow.Text = "ID:";
+            // 
+            // lblid
+            // 
+            this.lblid.AutoSize = true;
+            this.lblid.Location = new System.Drawing.Point(319, 40);
+            this.lblid.Name = "lblid";
+            this.lblid.Size = new System.Drawing.Size(0, 13);
+            this.lblid.TabIndex = 8;
+            // 
             // ID
             // 
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
+            this.ID.Width = 43;
             // 
             // Nome
             // 
@@ -132,6 +154,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(462, 450);
+            this.Controls.Add(this.lblid);
+            this.Controls.Add(this.lblidshow);
             this.Controls.Add(this.RemoveBtn);
             this.Controls.Add(this.TelTable);
             this.Controls.Add(this.AddBtn);
@@ -156,6 +180,8 @@
         private System.Windows.Forms.Button AddBtn;
         private System.Windows.Forms.DataGridView TelTable;
         private System.Windows.Forms.Button RemoveBtn;
+        private System.Windows.Forms.Label lblidshow;
+        private System.Windows.Forms.Label lblid;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefone;

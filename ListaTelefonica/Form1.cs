@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,11 +15,24 @@ namespace ListaTelefonica
     {
         string[][] list;
         readonly int max = 100;
-
+        string idAtual;
         public Form1()
         {
             InitializeComponent();
             list = new string[max][];
+
+        }
+        int Length(string[] e)
+        {
+            int itens = 0;
+            for (int i = 0; i < e.Length; i++)
+            {
+                if (e[i] != null)
+                {
+                    itens++;
+                }
+            }
+            return itens;
         }
         int Length(string[][] e)
         {
@@ -39,8 +53,10 @@ namespace ListaTelefonica
             {
                 DataGridViewRow row = new DataGridViewRow();
                 row.CreateCells(TelTable);
-                for (int j = 0; j < 2; j++)
+                for (int j = 0; j < Length(list[i]); j++)
                 {
+                    if (list[i][j] == null)
+                        continue;
                     row.Cells[j].Value = list[i][j];
                 }
                 TelTable.Rows.Add(row);
@@ -64,9 +80,23 @@ namespace ListaTelefonica
             {
                 id = int.Parse(list[Length(list) - 1][0]) + 1;
             }
-
+            if(idAtual != null)
+            {
+                for (int i = 0; i < Length(list); i++)
+                {
+                    if (list[i][0] == idAtual)
+                    {
+                        list[i][1] = NameTextBox.Text;
+                        list[i][2] = TelTextBox.Text;
+                        Atualizar();
+                        apagarTxt();
+                        return;
+                    }
+                }
+            }
             list[Length(list)] = new string[] {id.ToString(), NameTextBox.Text, TelTextBox.Text } ;
             Atualizar();
+            apagarTxt();
 
         }
         private void RemoveBtn_Click(object sender, EventArgs e)
@@ -94,6 +124,34 @@ namespace ListaTelefonica
                 Atualizar();
             }
         
+        }
+        void apagarTxt()
+        {
+            NameTextBox.Text = "";
+            TelTextBox.Text = "";
+            lblid.Text = "";
+            idAtual = null;
+        }
+
+        private void TelTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0 || TelTable.SelectedCells.Count == 0) {
+                return;
+            }
+            int linha = TelTable.SelectedCells[0].RowIndex;
+            if (TelTable.Rows[linha].Cells[0].Value.ToString() == idAtual)
+            {
+                TelTable.ClearSelection();
+                AddBtn.Text = "Adicionar";
+                apagarTxt();
+                return;
+            }
+            idAtual = TelTable.Rows[linha].Cells[0].Value.ToString();
+            lblid.Text = idAtual;
+            AddBtn.Text = "Alterar";
+            NameTextBox.Text = TelTable.Rows[TelTable.SelectedCells[0].RowIndex].Cells[1].Value.ToString();
+            TelTextBox.Text = TelTable.Rows[TelTable.SelectedCells[0].RowIndex].Cells[2].Value.ToString();
+
         }
     }
 }
