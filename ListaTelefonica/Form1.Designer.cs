@@ -100,6 +100,7 @@
             this.TelTable.ReadOnly = true;
             this.TelTable.Size = new System.Drawing.Size(240, 426);
             this.TelTable.TabIndex = 5;
+            this.TelTable.TabStop = false;
             this.TelTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TelTable_CellClick);
             // 
             // ID
@@ -127,7 +128,7 @@
             this.RemoveBtn.Location = new System.Drawing.Point(291, 161);
             this.RemoveBtn.Name = "RemoveBtn";
             this.RemoveBtn.Size = new System.Drawing.Size(157, 23);
-            this.RemoveBtn.TabIndex = 6;
+            this.RemoveBtn.TabIndex = 5;
             this.RemoveBtn.Text = "&Remover";
             this.RemoveBtn.UseVisualStyleBackColor = true;
             this.RemoveBtn.Click += new System.EventHandler(this.RemoveBtn_Click);
