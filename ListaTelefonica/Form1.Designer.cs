@@ -34,12 +34,12 @@
             this.TelTextBox = new System.Windows.Forms.MaskedTextBox();
             this.AddBtn = new System.Windows.Forms.Button();
             this.TelTable = new System.Windows.Forms.DataGridView();
-            this.RemoveBtn = new System.Windows.Forms.Button();
-            this.lblidshow = new System.Windows.Forms.Label();
-            this.lblid = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RemoveBtn = new System.Windows.Forms.Button();
+            this.lblidshow = new System.Windows.Forms.Label();
+            this.lblid = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.TelTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,7 +82,7 @@
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(157, 23);
             this.AddBtn.TabIndex = 4;
-            this.AddBtn.Text = "Adicionar";
+            this.AddBtn.Text = "&Adicionar";
             this.AddBtn.UseVisualStyleBackColor = true;
             this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
@@ -101,33 +101,6 @@
             this.TelTable.Size = new System.Drawing.Size(240, 426);
             this.TelTable.TabIndex = 5;
             this.TelTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TelTable_CellClick);
-            // 
-            // RemoveBtn
-            // 
-            this.RemoveBtn.Location = new System.Drawing.Point(291, 161);
-            this.RemoveBtn.Name = "RemoveBtn";
-            this.RemoveBtn.Size = new System.Drawing.Size(157, 23);
-            this.RemoveBtn.TabIndex = 6;
-            this.RemoveBtn.Text = "Remover";
-            this.RemoveBtn.UseVisualStyleBackColor = true;
-            this.RemoveBtn.Click += new System.EventHandler(this.RemoveBtn_Click);
-            // 
-            // lblidshow
-            // 
-            this.lblidshow.AutoSize = true;
-            this.lblidshow.Location = new System.Drawing.Point(288, 40);
-            this.lblidshow.Name = "lblidshow";
-            this.lblidshow.Size = new System.Drawing.Size(21, 13);
-            this.lblidshow.TabIndex = 7;
-            this.lblidshow.Text = "ID:";
-            // 
-            // lblid
-            // 
-            this.lblid.AutoSize = true;
-            this.lblid.Location = new System.Drawing.Point(319, 40);
-            this.lblid.Name = "lblid";
-            this.lblid.Size = new System.Drawing.Size(0, 13);
-            this.lblid.TabIndex = 8;
             // 
             // ID
             // 
@@ -148,6 +121,33 @@
             this.Telefone.HeaderText = "Telefone";
             this.Telefone.Name = "Telefone";
             this.Telefone.ReadOnly = true;
+            // 
+            // RemoveBtn
+            // 
+            this.RemoveBtn.Location = new System.Drawing.Point(291, 161);
+            this.RemoveBtn.Name = "RemoveBtn";
+            this.RemoveBtn.Size = new System.Drawing.Size(157, 23);
+            this.RemoveBtn.TabIndex = 6;
+            this.RemoveBtn.Text = "&Remover";
+            this.RemoveBtn.UseVisualStyleBackColor = true;
+            this.RemoveBtn.Click += new System.EventHandler(this.RemoveBtn_Click);
+            // 
+            // lblidshow
+            // 
+            this.lblidshow.AutoSize = true;
+            this.lblidshow.Location = new System.Drawing.Point(288, 40);
+            this.lblidshow.Name = "lblidshow";
+            this.lblidshow.Size = new System.Drawing.Size(21, 13);
+            this.lblidshow.TabIndex = 7;
+            this.lblidshow.Text = "ID:";
+            // 
+            // lblid
+            // 
+            this.lblid.AutoSize = true;
+            this.lblid.Location = new System.Drawing.Point(319, 40);
+            this.lblid.Name = "lblid";
+            this.lblid.Size = new System.Drawing.Size(0, 13);
+            this.lblid.TabIndex = 8;
             // 
             // Form1
             // 
