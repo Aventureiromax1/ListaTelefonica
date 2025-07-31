@@ -8,18 +8,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ListaTelefonica.Models;
 
 namespace ListaTelefonica
 {
     public partial class Form1 : Form
     {
-        string[][] list;
-        readonly int max = 100;
-        string idAtual;
+        List<contato> list;
         public Form1()
         {
             InitializeComponent();
-            list = new string[max][];
+            list = new List<contato>();
 
         }
         int Length(string[] e)
@@ -49,16 +48,13 @@ namespace ListaTelefonica
         void Atualizar()
         {
             TelTable.Rows.Clear();
-            for (int i = 0; i < Length(list); i++)
+            for (int i = 0; i < list.Count; i++)
             {
                 DataGridViewRow row = new DataGridViewRow();
                 row.CreateCells(TelTable);
-                for (int j = 0; j < Length(list[i]); j++)
-                {
-                    if (list[i][j] == null)
-                        continue;
-                    row.Cells[j].Value = list[i][j];
-                }
+                row.Cells[0].Value list[i].Id;
+                row.Cells[1].Value = list[i].nome;
+                row.Cells[2].Value = list[i].telefone;
                 TelTable.Rows.Add(row);
             }
         }
@@ -69,32 +65,16 @@ namespace ListaTelefonica
                 MessageBox.Show("insira nome e telefone");
                 return;
             }
-            if(Length(list) == max)
-            {
-                MessageBox.Show("Lista cheia");
-                return;
-            }
-
             int id = 1;
-            if(Length(list)> 0)
-            {
-                id = int.Parse(list[Length(list) - 1][0]) + 1;
-            }
-            if(idAtual != null)
-            {
-                for (int i = 0; i < Length(list); i++)
-                {
-                    if (list[i][0] == idAtual)
-                    {
-                        list[i][1] = NameTextBox.Text;
-                        list[i][2] = TelTextBox.Text;
-                        Atualizar();
-                        apagarTxt();
-                        return;
-                    }
-                }
-            }
-            list[Length(list)] = new string[] {id.ToString(), NameTextBox.Text, TelTextBox.Text } ;
+            if(list.Count > 0)
+            id = list.Max(c => c.Id) + 1;
+            contato Novo = new contato();
+            Novo.Id = id;
+            Novo.nome = NameTextBox.Text;
+            Novo.telefone = TelTextBox.Text;
+
+            list.Add(Novo);
+
             Atualizar();
             apagarTxt();
 
@@ -110,17 +90,13 @@ namespace ListaTelefonica
             DataGridViewCell cell = TelTable.SelectedCells[0];
             int linha = cell.RowIndex;
             string id = TelTable.Rows[linha].Cells[0].Value.ToString();
-            int index = 0;
-            for (index = 0; index < Length(list) && list[index][0] != id; index++) ;
+            int index = list.FindIndex(c => c.Id+"" == id);
 
-            DialogResult r = MessageBox.Show($"Deseja mesmo remover {list[index][1]}?", "", MessageBoxButtons.YesNo);
+
+            DialogResult r = MessageBox.Show($"Deseja mesmo remover {list[index].nome}?", "", MessageBoxButtons.YesNo);
             if (r == DialogResult.Yes)
             {
-                for (int i = index; i < Length(list) - 1; i++)
-                {
-                    list[i] = list[i + 1];
-                }
-                list[Length(list) - 1] = null;
+                list.RemoveAt(index);
                 Atualizar();
             }
         
