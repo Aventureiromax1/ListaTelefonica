@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ListaTelefonica.views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,10 @@ namespace ListaTelefonica
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            //for (int i = 0; i < 255; i++)
+            {
+                Application.Run(new frmPrincipal());
+            }
         }
     }
 }

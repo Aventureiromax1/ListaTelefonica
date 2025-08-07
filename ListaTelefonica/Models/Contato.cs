@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace ListaTelefonica.Models
 {
-    public class Contato
+    public class contato
     {
         public int Id { get; set; }
-        public string Nome { get; set; }
-        public string Telefone { get; set; }
+        public string nome { get; set; }
+
+        public string telefone { get; set; }
     }
 }

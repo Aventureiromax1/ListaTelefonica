@@ -17,12 +17,12 @@ namespace ListaTelefonica
 
     public partial class Form1 : Form
     {
-        List<Contato> lista;
+        List<contato> lista;
         string selectedId;
         public Form1()
         {
             InitializeComponent();
-            lista = new List<Contato>();
+            lista = new List<contato>();
         }
 
         void Atualizar()
@@ -30,12 +30,7 @@ namespace ListaTelefonica
             dgvLista.Rows.Clear();
             for (int i = 0; i < lista.Count; i++)
             {
-                DataGridViewRow row = new DataGridViewRow();
-                row.CreateCells(dgvLista);
-                row.Cells[0].Value = lista[i].Id;
-                row.Cells[1].Value = lista[i].Nome;
-                row.Cells[2].Value = lista[i].Telefone;
-                dgvLista.Rows.Add(row);
+                dgvLista.Rows.Add(lista[i].Id, lista[i].nome, lista[i].telefone);
             }
         }
 
@@ -51,8 +46,8 @@ namespace ListaTelefonica
             {
                 int indice = 0;
                 for (indice = 0; indice < lista.Count && lista[indice].Id+"" != selectedId; indice++);
-                lista[indice].Nome = txtNome.Text;
-                lista[indice].Telefone = txtTel.Text;
+                lista[indice].nome = txtNome.Text;
+                lista[indice].telefone = txtTel.Text;
             }
 
             else
@@ -63,10 +58,10 @@ namespace ListaTelefonica
                     id = lista.Max(c => c.Id) + 1;
                 }
 
-                Contato novo = new Contato();
+                contato novo = new contato();
                 novo.Id = id;
-                novo.Nome = txtNome.Text;
-                novo.Telefone = txtTel.Text;
+                novo.nome = txtNome.Text;
+                novo.telefone = txtTel.Text;
 
                 lista.Add(novo);
             }
@@ -89,7 +84,7 @@ namespace ListaTelefonica
 
             int indice = lista.FindIndex(c => c.Id+"" == selectedId);
 
-            DialogResult r = MessageBox.Show($"Deseja remover {lista[indice].Nome}?", "Remover", MessageBoxButtons.YesNo);
+            DialogResult r = MessageBox.Show($"Deseja remover {lista[indice].nome}?", "Remover", MessageBoxButtons.YesNo);
             if (r == DialogResult.Yes)
             {
                 lista.RemoveAt(indice);
@@ -119,6 +114,7 @@ namespace ListaTelefonica
                 return;
             }
             btnAdicionar.Text = "&Atualizar";
+            btnRemover.Enabled = true;
             selectedId = dgvLista.Rows[e.RowIndex].Cells[0].Value.ToString();
             txtNome.Text = dgvLista.Rows[e.RowIndex].Cells[1].Value.ToString();
             txtTel.Text = dgvLista.Rows[e.RowIndex].Cells[2].Value.ToString();
