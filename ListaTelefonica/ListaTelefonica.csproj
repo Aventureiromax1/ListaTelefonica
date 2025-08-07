@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9E8C2F82-6496-4A52-B074-C60F1538E357}</ProjectGuid>
+    <ProjectGuid>{0E372039-FE46-48BC-A1F8-0D0DE5CFCA60}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>ListaTelefonica</RootNamespace>
     <AssemblyName>ListaTelefonica</AssemblyName>
@@ -52,7 +52,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\contato.cs" />
+    <Compile Include="Models\Contato.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -80,5 +80,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
