@@ -95,7 +95,6 @@
             this.btnBuscar.TabIndex = 8;
             this.btnBuscar.Text = "&Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
             // btAdicionar
             // 
@@ -106,6 +105,7 @@
             this.btAdicionar.TabIndex = 9;
             this.btAdicionar.Text = "&Adicionar";
             this.btAdicionar.UseVisualStyleBackColor = true;
+            this.btAdicionar.Click += new System.EventHandler(this.btAdicionar_Click_1);
             // 
             // btEditar
             // 

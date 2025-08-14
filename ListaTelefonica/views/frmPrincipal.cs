@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ListaTelefonica.presenters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,13 +13,16 @@ namespace ListaTelefonica.views
 {
     public partial class frmPrincipal : Form
     {
+        private ContatoPresenter presenter;
         public frmPrincipal()
         {
             InitializeComponent();
+            presenter = new ContatoPresenter();
         }
-
-        private void btnAdicionar_Click(object sender, EventArgs e)
+        private void btAdicionar_Click_1(object sender, EventArgs e)
         {
+            frmNovoContato frm = new frmNovoContato(presenter);
+            frm.ShowDialog();
 
         }
     }

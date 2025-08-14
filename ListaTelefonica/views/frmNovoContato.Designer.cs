@@ -32,7 +32,7 @@
             this.btSalvar = new System.Windows.Forms.Button();
             this.lblNome = new System.Windows.Forms.Label();
             this.lblTel = new System.Windows.Forms.Label();
-            this.txtTel = new System.Windows.Forms.TextBox();
+            this.txtTel = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // txtNome
@@ -53,6 +53,7 @@
             this.btSalvar.TabIndex = 12;
             this.btSalvar.Text = "&Salvar";
             this.btSalvar.UseVisualStyleBackColor = true;
+            this.btSalvar.Click += new System.EventHandler(this.btSalvar_Click);
             // 
             // lblNome
             // 
@@ -77,11 +78,12 @@
             // txtTel
             // 
             this.txtTel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(52)))), ((int)(((byte)(53)))));
-            this.txtTel.ForeColor = System.Drawing.Color.White;
+            this.txtTel.ForeColor = System.Drawing.SystemColors.Window;
             this.txtTel.Location = new System.Drawing.Point(70, 62);
+            this.txtTel.Mask = "(99) 00000-0000";
             this.txtTel.Name = "txtTel";
             this.txtTel.Size = new System.Drawing.Size(221, 20);
-            this.txtTel.TabIndex = 14;
+            this.txtTel.TabIndex = 16;
             // 
             // frmNovoContato
             // 
@@ -89,8 +91,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(52)))), ((int)(((byte)(53)))));
             this.ClientSize = new System.Drawing.Size(303, 160);
-            this.Controls.Add(this.lblTel);
             this.Controls.Add(this.txtTel);
+            this.Controls.Add(this.lblTel);
             this.Controls.Add(this.lblNome);
             this.Controls.Add(this.btSalvar);
             this.Controls.Add(this.txtNome);
@@ -109,6 +111,6 @@
         private System.Windows.Forms.Button btSalvar;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Label lblTel;
-        private System.Windows.Forms.TextBox txtTel;
+        private System.Windows.Forms.MaskedTextBox txtTel;
     }
 }

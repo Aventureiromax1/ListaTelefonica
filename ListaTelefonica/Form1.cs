@@ -17,12 +17,12 @@ namespace ListaTelefonica
 
     public partial class Form1 : Form
     {
-        List<contato> lista;
+        List<Contato> lista;
         string selectedId;
         public Form1()
         {
             InitializeComponent();
-            lista = new List<contato>();
+            lista = new List<Contato>();
         }
 
         void Atualizar()
@@ -58,7 +58,7 @@ namespace ListaTelefonica
                     id = lista.Max(c => c.Id) + 1;
                 }
 
-                contato novo = new contato();
+                Contato novo = new Contato();
                 novo.Id = id;
                 novo.nome = txtNome.Text;
                 novo.telefone = txtTel.Text;
