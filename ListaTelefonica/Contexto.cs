@@ -10,7 +10,7 @@ namespace ListaTelefonica
 {
     public class Contexto : DbContext
     {
-        public DbSet<Contato> contatos { get; set; }
+        public DbSet<Contato> Contatos { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseNpgsql(

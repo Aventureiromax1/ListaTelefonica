@@ -34,8 +34,8 @@ namespace ListaTelefonica.views
             }
             Contato novo = new Contato()
             {
-                nome = nome,
-                telefone = telefone
+                Nome = nome,
+                Telefone = telefone
             };
             if (presenter.AdicionarContato(novo))
                 this.Close();

@@ -17,7 +17,28 @@ namespace ListaTelefonica.presenters
         }
         public bool AdicionarContato(Contato novo)
         {
-            db.contatos.Add(novo);
+            db.Contatos.Add(novo);
+            return db.SaveChanges() > 0;
+        }
+        public List<Contato> BuscarContatos(string busca = "")
+        {
+            if (busca == "")
+                return db.Contatos.ToList();
+            else
+                return db.Contatos.Where(c => c.Nome.Contains(busca) || c.Telefone.Contains(busca)).ToList();
+        }
+        public Contato selecionarContato(int id)
+        {
+            return db.Contatos.Find(id);
+        }
+        public bool EditarContato(Contato contato)
+        {
+            db.Contatos.Update(contato);
+            return db.SaveChanges() > 0;
+        }
+        public bool RemoverContato(Contato contato)
+        {
+            db.Contatos.Remove(contato);
             return db.SaveChanges() > 0;
         }
     }

@@ -30,7 +30,7 @@ namespace ListaTelefonica
             dgvLista.Rows.Clear();
             for (int i = 0; i < lista.Count; i++)
             {
-                dgvLista.Rows.Add(lista[i].Id, lista[i].nome, lista[i].telefone);
+                dgvLista.Rows.Add(lista[i].Id, lista[i].Nome, lista[i].Telefone);
             }
         }
 
@@ -46,8 +46,8 @@ namespace ListaTelefonica
             {
                 int indice = 0;
                 for (indice = 0; indice < lista.Count && lista[indice].Id+"" != selectedId; indice++);
-                lista[indice].nome = txtNome.Text;
-                lista[indice].telefone = txtTel.Text;
+                lista[indice].Nome = txtNome.Text;
+                lista[indice].Telefone = txtTel.Text;
             }
 
             else
@@ -60,8 +60,8 @@ namespace ListaTelefonica
 
                 Contato novo = new Contato();
                 novo.Id = id;
-                novo.nome = txtNome.Text;
-                novo.telefone = txtTel.Text;
+                novo.Nome = txtNome.Text;
+                novo.Telefone = txtTel.Text;
 
                 lista.Add(novo);
             }
@@ -84,7 +84,7 @@ namespace ListaTelefonica
 
             int indice = lista.FindIndex(c => c.Id+"" == selectedId);
 
-            DialogResult r = MessageBox.Show($"Deseja remover {lista[indice].nome}?", "Remover", MessageBoxButtons.YesNo);
+            DialogResult r = MessageBox.Show($"Deseja remover {lista[indice].Nome}?", "Remover", MessageBoxButtons.YesNo);
             if (r == DialogResult.Yes)
             {
                 lista.RemoveAt(indice);

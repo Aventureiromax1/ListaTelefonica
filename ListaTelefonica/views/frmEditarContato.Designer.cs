@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.lblTel = new System.Windows.Forms.Label();
-            this.txtTel = new System.Windows.Forms.TextBox();
             this.lblNome = new System.Windows.Forms.Label();
             this.btSalvar = new System.Windows.Forms.Button();
             this.txtNome = new System.Windows.Forms.TextBox();
+            this.txtTel = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // lblTel
@@ -44,15 +44,6 @@
             this.lblTel.Size = new System.Drawing.Size(52, 13);
             this.lblTel.TabIndex = 20;
             this.lblTel.Text = "Telefone:";
-            // 
-            // txtTel
-            // 
-            this.txtTel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(52)))), ((int)(((byte)(53)))));
-            this.txtTel.ForeColor = System.Drawing.Color.White;
-            this.txtTel.Location = new System.Drawing.Point(70, 59);
-            this.txtTel.Name = "txtTel";
-            this.txtTel.Size = new System.Drawing.Size(221, 20);
-            this.txtTel.TabIndex = 19;
             // 
             // lblNome
             // 
@@ -73,6 +64,7 @@
             this.btSalvar.TabIndex = 17;
             this.btSalvar.Text = "&Salvar";
             this.btSalvar.UseVisualStyleBackColor = true;
+            this.btSalvar.Click += new System.EventHandler(this.btSalvar_Click);
             // 
             // txtNome
             // 
@@ -83,14 +75,21 @@
             this.txtNome.Size = new System.Drawing.Size(221, 20);
             this.txtNome.TabIndex = 16;
             // 
+            // txtTel
+            // 
+            this.txtTel.Location = new System.Drawing.Point(70, 59);
+            this.txtTel.Name = "txtTel";
+            this.txtTel.Size = new System.Drawing.Size(221, 20);
+            this.txtTel.TabIndex = 21;
+            // 
             // frmEditarContato
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(52)))), ((int)(((byte)(53)))));
             this.ClientSize = new System.Drawing.Size(307, 163);
-            this.Controls.Add(this.lblTel);
             this.Controls.Add(this.txtTel);
+            this.Controls.Add(this.lblTel);
             this.Controls.Add(this.lblNome);
             this.Controls.Add(this.btSalvar);
             this.Controls.Add(this.txtNome);
@@ -107,9 +106,9 @@
         #endregion
 
         private System.Windows.Forms.Label lblTel;
-        private System.Windows.Forms.TextBox txtTel;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Button btSalvar;
         private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.MaskedTextBox txtTel;
     }
 }
